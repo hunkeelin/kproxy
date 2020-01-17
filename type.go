@@ -5,6 +5,6 @@ import (
 )
 
 type conn struct {
-	client           *http.Client
-	destionationHost string
+	client          *http.Client
+	destinationHost string
 }

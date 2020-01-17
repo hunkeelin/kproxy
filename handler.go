@@ -8,13 +8,13 @@ import (
 )
 
 func (c *conn) mainHandler(w http.ResponseWriter, r *http.Request) {
-	turl, err := url.Parse(temenosUrl + r.RequestURI)
+	turl, err := url.Parse(c.destinationHost + r.RequestURI)
 	if err != nil {
 		panic(err)
 	}
 	r.RequestURI = ""
 	r.URL = turl
-	r.Host = c.destionationHost
+	r.Host = c.destinationHost
 	resp, err := c.client.Do(r)
 	if err != nil {
 		fmt.Println(err)
